@@ -1,1 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Training Hub - Complete Guide to Artificial Intelligence</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4a50e2;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #4a50e2;
+        }
+
+        main {
+            margin-top: 80px;
+            background: white;
+            border-radius: 20px 20px 0 0;
+            overflow: hidden;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #4a50e2 0%, #7b68ee 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .cta-button {
+            background: #ff6b6b;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.3);
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #4a50e2, #7b68ee);
+            border-radius: 2px;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, #4a50e2, #7b68ee);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 1.5rem 0;
+            width: 45%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+            padding-right: 2rem;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 55%;
+            text-align: left;
+            padding-left: 2rem;
+        }
+
+        .timeline-content {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -8px;
+            top: 15px;
+            border: 8px solid transparent;
+            border-left-color: #f8f9fa;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -8px;
+            top: 15px;
+            border: 8px solid transparent;
+            border-right-color: #f8f9fa;
+        }
+
+        .year {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #4a50e2;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.4rem;
+            color: #333;
+        }
+
+        .timeline-content p {
+            font-size: 0.9rem;
+            line-height: 1.4;
+            color: #666;
+            margin: 0;
+        }
+
+        .hierarchy-diagram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 3rem 0;
+        }
+
+        .ai-box {
+            background: linear-gradient(135deg, #4a50e2, #7b68ee);
+            color: white;
+            padding: 1.5rem 3rem;
+            border-radius: 15px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(74, 80, 226, 0.3);
+        }
+
+        .ml-level {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .ml-box {
+            background: #ff6b6b;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .dl-level {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .dl-box {
+            background: #4ecdc4;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .card h3 {
+            color: #4a50e2;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card li {
+            padding: 0.3rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+            padding-left: 1.2rem;
+            font-size: 0.9rem;
+        }
+
+        .card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #4a50e2;
+            font-weight: bold;
+        }
+
+        .model-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .model-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .model-card:hover {
+            transform: scale(1.05);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .tool-item {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 4px solid #4a50e2;
+            transition: background 0.3s ease;
+        }
+
+        .tool-item:hover {
+            background: #e9ecef;
+        }
+
+        .references {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+
+        .reference-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .reference-link {
+            display: block;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #333;
+            border-left: 4px solid #4a50e2;
+            transition: all 0.3s ease;
+        }
+
+        .reference-link:hover {
+            background: #4a50e2;
+            color: white;
+            transform: translateX(5px);
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                width: calc(100% - 40px);
+                left: 40px !important;
+                text-align: left !important;
+                padding-left: 1rem !important;
+                padding-right: 0 !important;
+            }
+            
+            .timeline-content::before {
+                left: -10px !important;
+                border-right-color: #f8f9fa !important;
+                border-left-color: transparent !important;
+            }
+            
+            .ml-level, .dl-level {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">🤖 AI Training Hub</div>
+            <ul class="nav-links">
+                <li><a href="#history">History</a></li>
+                <li><a href="#hierarchy">AI Hierarchy</a></li>
+                <li><a href="#models">Models</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#resources">Resources</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Master Artificial Intelligence</h1>
+                <p>Your comprehensive guide to understanding AI, Machine Learning, and the future of technology</p>
+                <a href="#history" class="cta-button">Start Learning</a>
+            </div>
+        </section>
+
+        <section id="history" class="container">
+            <h2 class="section-title">History of AI Evolution</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="year">1943</div>
+                        <h3>Birth of Neural Networks</h3>
+                        <p>McCulloch and Pitts create the first mathematical model of neural networks</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="year">1956</div>
+                        <h3>AI Term Coined</h3>
+                        <p>John McCarthy coins the term "Artificial Intelligence" at Dartmouth Conference</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="year">1980s</div>
+                        <h3>Expert Systems Era</h3>
+                        <p>Development of knowledge-based expert systems for specific domains</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="year">1997</div>
+                        <h3>Deep Blue Victory</h3>
+                        <p>IBM's Deep Blue defeats world chess champion Garry Kasparov</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="year">2006</div>
+                        <h3>Deep Learning Renaissance</h3>
+                        <p>Geoffrey Hinton introduces deep belief networks, sparking deep learning revolution</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="year">2012</div>
+                        <h3>ImageNet Breakthrough</h3>
+                        <p>AlexNet achieves dramatic improvement in image recognition using CNNs</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="year">2017</div>
+                        <h3>Transformer Architecture</h3>
+                        <p>"Attention Is All You Need" paper introduces transformers, revolutionizing NLP</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="year">2022</div>
+                        <h3>Generative AI Boom</h3>
+                        <p>ChatGPT and DALL-E bring AI to mainstream, launching the generative AI era</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <h2 class="section-title">Current AI Advancements</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>🧠 Large Language Models</h3>
+                    <ul>
+                        <li>GPT-4, Claude, Gemini leading conversational AI</li>
+                        <li>Multimodal capabilities (text, image, audio)</li>
+                        <li>Code generation and debugging</li>
+                        <li>Reasoning and problem-solving</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>🎨 Generative AI</h3>
+                    <ul>
+                        <li>DALL-E, Midjourney for image generation</li>
+                        <li>Sora for video synthesis</li>
+                        <li>Music and audio generation</li>
+                        <li>3D model and scene creation</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>🤖 Autonomous Systems</h3>
+                    <ul>
+                        <li>Self-driving cars and robotics</li>
+                        <li>Drone navigation and control</li>
+                        <li>Industrial automation</li>
+                        <li>Smart home and IoT integration</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>🔬 Scientific AI</h3>
+                    <ul>
+                        <li>Protein folding prediction (AlphaFold)</li>
+                        <li>Drug discovery acceleration</li>
+                        <li>Climate modeling and prediction</li>
+                        <li>Materials science research</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="hierarchy" class="container">
+            <h2 class="section-title">AI Hierarchy & Relationships</h2>
+            <div class="hierarchy-diagram">
+                <div class="ai-box">🤖 Artificial Intelligence</div>
+                <div class="ml-level">
+                    <div class="ml-box">🧠 Machine Learning</div>
+                    <div class="ml-box">🔧 Expert Systems</div>
+                    <div class="ml-box">🔍 Computer Vision</div>
+                </div>
+                <div class="dl-level">
+                    <div class="dl-box">🕸️ Deep Learning</div>
+                    <div class="dl-box">🎯 Reinforcement Learning</div>
+                    <div class="dl-box">📊 Statistical Learning</div>
+                </div>
+            </div>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>🤖 Artificial Intelligence</h3>
+                    <p>The broadest field encompassing any technique that enables machines to mimic human intelligence, including reasoning, learning, and problem-solving.</p>
+                </div>
+                <div class="card">
+                    <h3>🧠 Machine Learning</h3>
+                    <p>A subset of AI that enables systems to learn and improve from data without explicit programming, using algorithms to identify patterns.</p>
+                </div>
+                <div class="card">
+                    <h3>🕸️ Deep Learning</h3>
+                    <p>A subset of ML using neural networks with multiple layers to model complex patterns in large amounts of data.</p>
+                </div>
+                <div class="card">
+                    <h3>🎨 Generative AI</h3>
+                    <p>AI systems that create new content (text, images, code, music) based on training data, often using deep learning models.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="models" class="container">
+            <h2 class="section-title">Introduction to AI Models</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>What are AI Models?</h3>
+                    <p>AI models are mathematical representations that process input data to generate predictions or decisions. They are trained on datasets to learn patterns and relationships.</p>
+                </div>
+                <div class="card">
+                    <h3>Model Training Process</h3>
+                    <ul>
+                        <li>Data Collection & Preprocessing</li>
+                        <li>Feature Engineering</li>
+                        <li>Algorithm Selection</li>
+                        <li>Training & Validation</li>
+                        <li>Testing & Deployment</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; margin: 3rem 0 2rem; font-size: 2rem; color: #4a50e2;">Types of AI Models</h3>
+            <div class="model-types">
+                <div class="model-card">
+                    <h4>📈 Supervised Learning</h4>
+                    <p>Linear/Logistic Regression, Decision Trees, Random Forest, SVM, Neural Networks</p>
+                </div>
+                <div class="model-card">
+                    <h4>🔍 Unsupervised Learning</h4>
+                    <p>K-Means, Hierarchical Clustering, PCA, DBSCAN, Autoencoders</p>
+                </div>
+                <div class="model-card">
+                    <h4>🎯 Reinforcement Learning</h4>
+                    <p>Q-Learning, Policy Gradient, Actor-Critic, PPO, DDPG</p>
+                </div>
+                <div class="model-card">
+                    <h4>🕸️ Deep Learning</h4>
+                    <p>CNNs, RNNs, LSTMs, Transformers, GANs, VAEs</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <h2 class="section-title">Popular AI Models</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>🔓 Open Source Models</h3>
+                    <ul>
+                        <li>Llama 2/3 (Meta) - Language models</li>
+                        <li>Mistral 7B/8x7B - Efficient language models</li>
+                        <li>Stable Diffusion - Image generation</li>
+                        <li>BERT/RoBERTa - Text understanding</li>
+                        <li>YOLOv8 - Object detection</li>
+                        <li>Whisper - Speech recognition</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>🏢 Proprietary Models</h3>
+                    <ul>
+                        <li>GPT-4/4o (OpenAI) - Advanced language model</li>
+                        <li>Claude 3 (Anthropic) - Constitutional AI</li>
+                        <li>Gemini (Google) - Multimodal AI</li>
+                        <li>DALL-E 3 (OpenAI) - Image generation</li>
+                        <li>Midjourney - Artistic image creation</li>
+                        <li>Copilot (Microsoft) - Code assistant</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>🔬 Research Models</h3>
+                    <ul>
+                        <li>PaLM (Google) - Large language model</li>
+                        <li>InstructGPT - Human feedback training</li>
+                        <li>Flamingo - Few-shot learning</li>
+                        <li>CLIP - Vision-language understanding</li>
+                        <li>AlphaFold - Protein structure prediction</li>
+                        <li>MuZero - Game-playing AI</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="tools" class="container">
+            <h2 class="section-title">Development Tools & Frameworks</h2>
+            <div class="tools-grid">
+                <div class="tool-item">
+                    <h4>🐍 Python Libraries</h4>
+                    <p>TensorFlow, PyTorch, Scikit-learn, Pandas, NumPy</p>
+                </div>
+                <div class="tool-item">
+                    <h4>☁️ Cloud Platforms</h4>
+                    <p>AWS SageMaker, Google Cloud AI, Azure ML, Databricks</p>
+                </div>
+                <div class="tool-item">
+                    <h4>📊 Data Tools</h4>
+                    <p>Jupyter, Kaggle, Weights & Biases, MLflow, DVC</p>
+                </div>
+                <div class="tool-item">
+                    <h4>🚀 Deployment</h4>
+                    <p>Docker, Kubernetes, FastAPI, Flask, Streamlit</p>
+                </div>
+                <div class="tool-item">
+                    <h4>🤗 Model Hubs</h4>
+                    <p>Hugging Face, Model Zoo, TensorFlow Hub, PyTorch Hub</p>
+                </div>
+                <div class="tool-item">
+                    <h4>💻 IDEs & Editors</h4>
+                    <p>VS Code, PyCharm, Colab, Jupyter Lab, Cursor</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="resources" class="container">
+            <h2 class="section-title">Get Started - Learning Resources</h2>
+            <div class="references">
+                <h3>📚 Essential Learning Paths</h3>
+                <div class="reference-links">
+                    <a href="https://coursera.org/learn/machine-learning" class="reference-link">
+                        <strong>Machine Learning Course (Stanford)</strong><br>
+                        Andrew Ng's foundational ML course
+                    </a>
+                    <a href="https://fast.ai" class="reference-link">
+                        <strong>Fast.ai - Practical Deep Learning</strong><br>
+                        Hands-on approach to deep learning
+                    </a>
+                    <a href="https://cs231n.github.io" class="reference-link">
+                        <strong>CS231n - Convolutional Neural Networks</strong><br>
+                        Stanford's computer vision course
+                    </a>
+                    <a href="https://huggingface.co/course" class="reference-link">
+                        <strong>Hugging Face NLP Course</strong><br>
+                        Comprehensive natural language processing
+                    </a>
+                    <a href="https://deeplearning.ai" class="reference-link">
+                        <strong>DeepLearning.AI Specializations</strong><br>
+                        Advanced AI and deep learning courses
+                    </a>
+                    <a href="https://kaggle.com/learn" class="reference-link">
+                        <strong>Kaggle Learn</strong><br>
+                        Free micro-courses on ML and data science
+                    </a>
+                </div>
+            </div>
+
+            <div class="references">
+                <h3>📖 Essential Books & Documentation</h3>
+                <div class="reference-links">
+                    <a href="https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/" class="reference-link">
+                        <strong>Hands-On Machine Learning</strong><br>
+                        Aurélien Géron - Practical ML with Python
+                    </a>
+                    <a href="https://www.deeplearningbook.org" class="reference-link">
+                        <strong>Deep Learning Book</strong><br>
+                        Ian Goodfellow - Mathematical foundations
+                    </a>
+                    <a href="https://pytorch.org/tutorials/" class="reference-link">
+                        <strong>PyTorch Tutorials</strong><br>
+                        Official PyTorch learning resources
+                    </a>
+                    <a href="https://www.tensorflow.org/learn" class="reference-link">
+                        <strong>TensorFlow Guides</strong><br>
+                        Comprehensive TensorFlow documentation
+                    </a>
+                </div>
+            </div>
+
+            <div class="references">
+                <h3>🛠️ Practical Resources</h3>
+                <div class="reference-links">
+                    <a href="https://github.com/topics/machine-learning" class="reference-link">
+                        <strong>GitHub ML Projects</strong><br>
+                        Open source machine learning projects
+                    </a>
+                    <a href="https://paperswithcode.com" class="reference-link">
+                        <strong>Papers with Code</strong><br>
+                        Latest AI research with implementations
+                    </a>
+                    <a href="https://towardsdatascience.com" class="reference-link">
+                        <strong>Towards Data Science</strong><br>
+                        Medium publication for AI articles
+                    </a>
+                    <a href="https://distill.pub" class="reference-link">
+                        <strong>Distill</strong><br>
+                        Clear explanations of ML concepts
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 AI Training Hub. Empowering the next generation of AI practitioners.</p>
+            <p>🚀 Built with passion for AI education | Last updated: June 2025</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Animate cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card, .timeline-item, .model-card, .tool-item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
 
