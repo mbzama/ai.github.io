@@ -331,13 +331,37 @@
 
         .model-card:hover {
             transform: scale(1.05);
-        }
-
-        .tools-grid {
+        }        .tools-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
             margin: 2rem 0;
+        }
+
+        .roadmap-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }        .roadmap-item {
+            margin-bottom: 3rem;
+            text-align: center;
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(74, 80, 226, 0.08);
+            border: 1px solid #e8ebff;
+        }
+
+        .roadmap-item h3 {
+            font-size: 1.8rem;
+            color: #4a50e2;
+            margin-bottom: 1rem;
+        }
+
+        .roadmap-item p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
         }
 
         .tool-item {
@@ -439,8 +463,9 @@
 <body>
     <header>
         <nav class="container">
-            <div class="logo">🤖 AI Training Hub</div>
+            <div class="logo">🤖 AI Training Hub</div>            
             <ul class="nav-links">
+                <li><a href="#roadmap">Roadmap</a></li>
                 <li><a href="#history">History</a></li>
                 <li><a href="#hierarchy">AI Hierarchy</a></li>
                 <li><a href="#models">Models</a></li>
@@ -453,9 +478,28 @@
     <main>
         <section class="hero">
             <div class="container">
-                <h1>Master Artificial Intelligence</h1>
-                <p>Your comprehensive guide to understanding AI, Machine Learning, and the future of technology</p>
-                <a href="#history" class="cta-button">Start Learning</a>
+                <h1>Welcome to AI Training Hub</h1>
+                <p>Your comprehensive guide to understanding and mastering Artificial Intelligence, Machine Learning, and Deep Learning</p>
+                <a href="#roadmap" class="cta-button">Start Your AI Journey</a>
+            </div>
+        </section>        <section id="roadmap" class="container">
+            <h2 class="section-title">Roadmap Journey</h2>
+            <div class="roadmap-container">
+                <div class="roadmap-item">
+                    <h3>🚀 AI Basics Roadmap</h3>
+                    <p>Start your AI journey with fundamental concepts and core principles that form the foundation of artificial intelligence.</p>
+                    <img src="roadmap-ai-basics.gif" alt="AI Basics Learning Roadmap" style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); margin: 1rem 0 2rem 0;">
+                </div>
+                <div class="roadmap-item">
+                    <h3>🔧 ML Engineer Roadmap</h3>
+                    <p>Develop practical skills for building, deploying, and maintaining machine learning systems in production environments.</p>
+                    <img src="roadmap-ml-engineer.gif" alt="Machine Learning Engineer Roadmap" style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); margin: 1rem 0 2rem 0;">
+                </div>
+                <div class="roadmap-item">
+                    <h3>🔬 ML Scientist Roadmap</h3>
+                    <p>Master advanced research methodologies and cutting-edge techniques for developing innovative ML solutions.</p>
+                    <img src="roadmap-ml-scientist.gif" alt="Machine Learning Scientist Roadmap" style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); margin: 1rem 0 2rem 0;">
+                </div>
             </div>
         </section>
 
